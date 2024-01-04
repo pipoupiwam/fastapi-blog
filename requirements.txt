@@ -1,0 +1,12 @@
+
+# https://testdriven.io/blog/fastapi-sqlmodel/
+# Absatraction layer to use sqlAlchemy and Pyandic models within FastAPI
+sqlmodel==0.0.14
+
+# https://magicstack.github.io/asyncpg/current/index.html
+# Replacement for psycopg2 to use asyncio with postgres.
+asyncpg==0.29.0
+
+# https://github.com/sqlalchemy/alembic
+# Database migrations
+alembic==1.13.1
