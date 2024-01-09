@@ -1,12 +1,26 @@
-
-# https://testdriven.io/blog/fastapi-sqlmodel/
-# Absatraction layer to use sqlAlchemy and Pyandic models within FastAPI
-sqlmodel==0.0.14
-
-# https://magicstack.github.io/asyncpg/current/index.html
+# Main APP
+# FastAPI framework
+fastapi==0.108.0
+# ORM
+SQLAlchemy==2.0.25
 # Replacement for psycopg2 to use asyncio with postgres.
 asyncpg==0.29.0
-
-# https://github.com/sqlalchemy/alembic
 # Database migrations
 alembic==1.13.1
+
+# Testing
+pytest==7.4.4
+
+# Allows to write `async def` tests and fixtures
+pytest-asyncio==0.23.3
+
+# Httpx is an asyncio requests like library, used for testing purposes.
+httpx==0.26.0
+# aiosqlite is used as an SQLite driver for asyncio tests
+aiosqlite==0.19.0
+
+# Allows to freeze test time
+freezegun==1.4.0
+
+# Generate snapshots, used for API testing
+pytest-snapshot==0.9.0

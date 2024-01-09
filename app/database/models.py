@@ -8,9 +8,16 @@ from sqlalchemy.orm import relationship
 Base = declarative_base()
 
 
+def _now():
+    """
+    Required for freezegun to be able to freeze time properly.
+    """
+    return datetime.utcnow()
+
+
 class TimestampMixin(object):
-    created_at = mapped_column(DateTime, default=datetime.utcnow)
-    updated_at = mapped_column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+    created_at = mapped_column(DateTime, default=_now)
+    updated_at = mapped_column(DateTime, default=_now, onupdate=_now)
 
 
 class Author(TimestampMixin, Base):

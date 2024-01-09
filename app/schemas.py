@@ -13,13 +13,6 @@ class ArticleBase(BaseModel):
     author_id: int
 
 
-class ArticleCreate(ArticleBase):
-    """
-    Pydantic model to create Article instance
-    """
-    pass
-
-
 class Article(ArticleBase):
     """
     Database model for Article table
@@ -35,13 +28,6 @@ class Article(ArticleBase):
 class AuthorBase(BaseModel):
     first_name: str
     last_name: str
-
-
-class AuthorCreate(AuthorBase):
-    """
-    Pydantic model to create Author instance
-    """
-    pass
 
 
 class Author(AuthorBase):

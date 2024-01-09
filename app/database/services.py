@@ -1,6 +1,6 @@
 from fastapi import HTTPException
+from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
-from sqlmodel import select
 from . import models
 
 import logging
@@ -34,7 +34,7 @@ class ArticleService:
         db.add(article_instance)
         await db.commit()
         await db.refresh(article_instance)
-        logger.error(f"Created Article : {article_instance.title} {article_instance.content}"
+        logger.info(f"Created Article : {article_instance.title} {article_instance.content}"
                      f" {article_instance.author_id}")
         return article_instance
 
@@ -70,7 +70,7 @@ class AuthorService:
         db.add(author_instance)
         await db.commit()
         await db.refresh(author_instance)
-        logger.error(f"Created Author : {author_instance.first_name} {author_instance.last_name} {author_instance.id}")
+        logger.info(f"Created Author : {author_instance.first_name} {author_instance.last_name} {author_instance.id}")
         return author_instance
 
     @staticmethod

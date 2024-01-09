@@ -7,3 +7,5 @@ schema_migration:
 schema_migrate:
 	alembic upgrade head
 
+test:
+	pytest
