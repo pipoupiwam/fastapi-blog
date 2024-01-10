@@ -20,7 +20,7 @@ class Article(ArticleBase):
     id: int
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 
 
@@ -40,5 +40,5 @@ class Author(AuthorBase):
 
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
