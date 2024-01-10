@@ -53,3 +53,9 @@ async def async_client(async_db):
     app.dependency_overrides[get_db] = lambda: async_db
     async with AsyncClient(app=app, base_url="http://testserver") as client:
         yield client
+
+@pytest_asyncio.fixture
+async def with_app():
+    """Fixtures used to solve import issues when mocking app attributes"""
+    yield app
+
