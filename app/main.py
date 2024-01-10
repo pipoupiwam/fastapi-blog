@@ -1,3 +1,4 @@
+import asyncio
 import logging
 
 from fastapi import Depends, FastAPI, status
@@ -7,9 +8,11 @@ from sqlalchemy.orm import sessionmaker
 from . import schemas
 from .database.db import engine
 from .database.services import AuthorService, ArticleService
+from .middlewares import LogExecutionTimeMiddleware
 
 logger = logging.getLogger("blog-logger")
 app = FastAPI()
+app.add_middleware(LogExecutionTimeMiddleware)
 
 
 async def get_db() -> AsyncSession:
