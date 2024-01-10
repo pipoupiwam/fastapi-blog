@@ -8,7 +8,7 @@ from sqlalchemy.orm import sessionmaker
 from . import schemas
 from .database.db import engine
 from .database.services import AuthorService, ArticleService
-from .middlewares import LogExecutionTimeMiddleware
+from app.middlewares import LogExecutionTimeMiddleware
 
 logger = logging.getLogger("blog-logger")
 app = FastAPI()
@@ -21,11 +21,6 @@ async def get_db() -> AsyncSession:
     )
     async with async_session() as session:
         yield session
-
-
-@app.on_event("startup")
-async def on_startup():
-    logger.info("Starting up")
 
 
 @app.get("/healthcheck", status_code=status.HTTP_200_OK)

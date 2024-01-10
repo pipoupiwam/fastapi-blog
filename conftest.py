@@ -1,11 +1,11 @@
 import pytest_asyncio
+from freezegun import freeze_time
 from httpx import AsyncClient
 from sqlalchemy import StaticPool
 from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine
-
 from sqlalchemy.orm import sessionmaker
+
 from app.database.models import Base
-from freezegun import freeze_time
 from app.main import app, get_db
 
 # in memory async sqlite
@@ -54,8 +54,4 @@ async def async_client(async_db):
     async with AsyncClient(app=app, base_url="http://testserver") as client:
         yield client
 
-@pytest_asyncio.fixture
-async def with_app():
-    """Fixtures used to solve import issues when mocking app attributes"""
-    yield app
 
