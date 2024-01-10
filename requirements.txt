@@ -1,5 +1,7 @@
 # Main APP
+############
 # FastAPI framework
+uvicorn==0.25.0
 fastapi==0.108.0
 # ORM
 SQLAlchemy==2.0.25
@@ -9,6 +11,7 @@ asyncpg==0.29.0
 alembic==1.13.1
 
 # Testing
+##########
 pytest==7.4.4
 
 # Allows to write `async def` tests and fixtures
@@ -24,3 +27,7 @@ freezegun==1.4.0
 
 # Generate snapshots, used for API testing
 pytest-snapshot==0.9.0
+
+# Distribution
+###############
+pyinstaller==6.3.0

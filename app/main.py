@@ -1,4 +1,3 @@
-import asyncio
 import logging
 
 from fastapi import Depends, FastAPI, status
@@ -100,3 +99,4 @@ async def create_article(article: schemas.ArticleBase, db: AsyncSession = Depend
 @app.delete("/articles/{article_id}", status_code=status.HTTP_204_NO_CONTENT)
 async def delete_article(article_id: int,  db: AsyncSession = Depends(get_db)):
     await ArticleService.delete_article(db=db, article_id=article_id)
+
